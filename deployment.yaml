@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-php-website-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: basic-php-website
+  template:
+    metadata:
+      labels:
+        app: basic-php-website
+    spec:
+      containers:
+        - name: basic-php-website-container
+          image: premgowda07/basic-php-website:latest
+ # Make sure the image is correct
+          ports:
+            - containerPort: 80
